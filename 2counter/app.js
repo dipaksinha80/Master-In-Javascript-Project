@@ -16,7 +16,10 @@ btns.forEach(function (btn) {
     // Check if the clicked button has the class "decrease"
     if (styles.contains("decrease")) {
       // If so, decrease the count
-      count--;
+      // this will never set negative counter value
+      if (count > 0) {
+        count--;
+      }
     } else if (styles.contains("increase")) {
       // Check if the clicked button has the class "increase"
       // If so, increase the count
