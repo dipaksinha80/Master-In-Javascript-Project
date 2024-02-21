@@ -1,5 +1,6 @@
 // local reviews data
 const reviews = [
+  // Individual review objects with properties like id, name, job, img, and text
   {
     id: 1,
     name: "susan smith",
@@ -28,26 +29,28 @@ const reviews = [
     img: "https://www.course-api.com/images/people/person-3.jpeg",
     text: "Edison bulb put a bird on it humblebrag, marfa pok pok heirloom fashion axe cray stumptown venmo actually seitan. VHS farm-to-table schlitz, edison bulb pop-up 3 wolf moon tote bag street art shabby chic. ",
   },
+  // Additional review objects...
 ];
-// select items
+// Selecting elements from the HTML document
 const img = document.getElementById("person-img");
 const author = document.getElementById("author");
 const job = document.getElementById("job");
 const info = document.getElementById("info");
 
+// Buttons for navigation
 const prevBtn = document.querySelector(".prev-btn");
 const nextBtn = document.querySelector(".next-btn");
 const randomBtn = document.querySelector(".random-btn");
 
-//set starting item
+// Initializing the index of the current review
 let currentItem = 0;
 
-//load initial item
+// Loading initial review when the window is loaded
 window.addEventListener("DOMContentLoaded", function () {
   showPerson();
 });
 
-// show person based on item
+// Function to display a review based on the current index
 
 function showPerson() {
   const item = reviews[currentItem];
@@ -57,7 +60,7 @@ function showPerson() {
   info.textContent = item.text;
 }
 
-//  event listener for prev and next
+//  event listener for next
 //this will only goes incrementing the index and at last it give some error
 
 // nextBtn.addEventListener("click", function () {
@@ -65,31 +68,35 @@ function showPerson() {
 //   showPerson(currentItem);
 // });
 
-// the best practise is
+// the best practice is
 // after reaching the last index it goes automatically to the first index
 
-//show next
-
+// Event listener for the "Next" button
 nextBtn.addEventListener("click", function () {
   currentItem++;
+  // If the index exceeds the length of the reviews array, loop back to the first review
   if (currentItem > reviews.length - 1) {
     currentItem = 0;
   }
+  // Display the review
   showPerson();
 });
 
-//show prev person
-// repeat the same logic for prevBtn as well
+// Event listener for the "Previous" button
 prevBtn.addEventListener("click", function () {
   currentItem--;
+  // If the index becomes negative, loop to the last review
   if (currentItem < 0) {
     currentItem = reviews.length - 1;
   }
+  // Display the review
   showPerson();
 });
 
-//concept of displaying randowm review by clicking on surprise me button
+// Event listener for the "Surprise Me" button
 randomBtn.addEventListener("click", function () {
+  // Generate a random index within the range of the reviews array
   currentItem = Math.floor(Math.random() * reviews.length);
+  // Display the randomly selected review
   showPerson(currentItem);
 });
