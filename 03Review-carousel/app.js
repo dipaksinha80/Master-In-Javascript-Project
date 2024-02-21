@@ -88,4 +88,8 @@ prevBtn.addEventListener("click", function () {
   showPerson();
 });
 
-//
+//concept of displaying randowm review by clicking on surprise me button
+randomBtn.addEventListener("click", function () {
+  currentItem = Math.floor(Math.random() * reviews.length);
+  showPerson(currentItem);
+});
