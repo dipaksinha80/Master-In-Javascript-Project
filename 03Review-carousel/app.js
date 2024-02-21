@@ -51,9 +51,39 @@ window.addEventListener("DOMContentLoaded", function () {
 
 function showPerson(person) {
   const item = reviews[person];
-  // const item = reviews[currentItem];
   img.src = item.img;
   author.textContent = item.name;
   job.textContent = item.job;
   info.textContent = item.text;
 }
+
+//  event listener for prev and next
+//this will only goes incrementing the index and at last it give some error
+
+// nextBtn.addEventListener("click", function () {
+//   currentItem++;
+//   showPerson(currentItem);
+// });
+
+// the best practise is
+// after reaching the last index it goes automatically to the first index
+
+//show next
+
+nextBtn.addEventListener("click", function () {
+  currentItem++;
+  if (currentItem > reviews.length - 1) {
+    currentItem = 0;
+  }
+  showPerson(currentItem);
+});
+
+//show prev person
+// repeat the same logic for prevBtn as well
+prevBtn.addEventListener("click", function () {
+  currentItem--;
+  if (currentItem < 0) {
+    currentItem = reviews.length - 1;
+  }
+  showPerson(currentItem);
+});
