@@ -7,6 +7,13 @@ questions.forEach(function (question) {
   const btn = question.querySelector(".question-btn");
   //   console.log(btn);
   btn.addEventListener("click", function () {
+    //this will only show the clicked question , previous question will be closed after clicking new question
+    questions.forEach(function (item) {
+      if (item !== question) {
+        item.classList.remove("show-text");
+      }
+    });
+
     question.classList.toggle("show-text");
   });
 });
