@@ -105,3 +105,5 @@ window.addEventListener("DOMContentLoaded", function () {
   //   console.log(displayMenu);
   sectionCenter.innerHTML = displayMenu;
 });
+
+// left uncomplited
