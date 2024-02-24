@@ -17,3 +17,10 @@ btn.addEventListener("click", function () {
     btn.classList.remove("slide");
   }
 });
+
+// preloader
+const preloader = document.querySelector(".preloader");
+
+window.addEventListener("load", function () {
+  preloader.classList.add("hide-preloader");
+});
